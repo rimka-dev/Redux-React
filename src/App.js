@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import PhoneContainer from './components/PhoneContainer';
+import store from './redux/store';
+import {Provider} from 'react-redux'; // pour connecter redux à react on installe (npm i react-redux)
+import TvContainer from './components/TvContainer';
+import CommentsContainer from './components/CommentsContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+    <div className="container">
+      <h1 className="text-center bg-light m-1">Redux</h1>
+      <div className="row">
+        <div className="col-6"><PhoneContainer/></div>
+        <div className="col-6"> <TvContainer/></div>
+        <CommentsContainer/>
+      </div>
+      
+     
     </div>
+    </Provider>
   );
 }
 
